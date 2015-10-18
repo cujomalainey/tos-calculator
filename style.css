@@ -1,0 +1,21 @@
+.floating {
+	float: left;
+}
+
+.sidebar {
+	height: 98%;
+	width: 18%;
+}
+
+.center {
+	width: 78%;
+}
+
+.header {
+	height: 18%;
+}
+
+.debug {
+	border-style: solid;
+    border-width: 1%;
+}
