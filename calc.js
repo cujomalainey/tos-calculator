@@ -61,12 +61,23 @@ calculator.gameModes = {
 
 
 calculator.setup = function() {
-    
+    l = [];
+    for (int i = 0; i < 16; i++) {
+        l.add($("#" + i));
+    }
+    calculator.people = l;
 }
 
 calculator.run = function() {
-
+    // remove all warnings
+    this.clearWarnings();
+// reset the pool
+// remove all verified rules from pool
+// count claims against pool
+// look for roles that extend into RT, and any
+// highlight roles based on dnager
 };
 
-$(function() {
-  });
+calculator.clearWarnings = function(){
+
+};
