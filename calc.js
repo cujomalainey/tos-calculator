@@ -69,7 +69,4 @@ calculator.run = function() {
 };
 
 $(function() {
-    $( ".claims" ).autocomplete({
-      source: Object.keys(calculator.roles)
-    });
   });
