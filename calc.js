@@ -1,37 +1,37 @@
 var calculator = {};
 
 calculator.roles = {
-    "escort":{canbe:["escort", "townSupport", "randomTown", "any"], unique:false},
-    "transporter":{canbe:["transporter", "townSupport", "randomTown", "any"], unique:false},
-    "mayor":{canbe:["mayor", "townSupport", "randomTown", "any"], unique:true},
-    "medium":{canbe:["medium", "townSupport", "randomTown", "any"], unique:false},
-    "retributionist":{canbe:["retributionist", "townSupport", "randomTown", "any"], unique:true},
-    "investigator":{canbe:["investigator", "townInvestigative", "randomTown", "any"], unique:false},
-    "spy":{canbe:["spy", "townInvestigative", "randomTown", "any"], unique:false},
-    "lookout":{canbe:["lookout", "townInvestigative", "randomTown", "any"], unique:false},
-    "sheriff":{canbe:["sheriff", "townInvestigative", "randomTown", "any"], unique:false},
-    "bodyguard":{canbe:["bodyguard", "townProtective", "randomTown", "any"], unique:false},
-    "doctor":{canbe:["doctor", "townProtective", "randomTown", "any"], unique:false},
-    "jailor":{canbe:["jailor", "townProtective", "randomTown", "any"], unique:true},
-    "veteran":{canbe:["veteran", "townKilling", "randomTown", "any"], unique:false},
-    "vigilante":{canbe:["vigilante", "townKilling", "randomTown", "any"], unique:false},
-    "framer":{canbe:["framer", "mafiaDeception", "randomMafia", "any"], unique:false},
-    "disguiser":{canbe:["disguiser", "mafiaDeception", "randomMafia", "any"], unique:false},
-    "janitor":{canbe:["janitor", "mafiaDeception", "randomMafia", "any"], unique:false},
-    "forger":{canbe:["forger", "mafiaDeception", "randomMafia", "any"], unique:false},
-    "blackmailer":{canbe:["blackmailer", "mafiaSupport", "randomMafia", "any"], unique:false},
-    "consigliere":{canbe:["consigliere", "mafiaSupport", "randomMafia", "any"], unique:false},
-    "consort":{canbe:["consort", "mafiaSupport", "randomMafia", "any"],  unique:false},
-    "godfather":{canbe:["godfather", "mafiaKilling", "randomMafia", "any"], unique:true},
-    "mafioso":{canbe:["mafioso", "mafiaKilling", "randomMafia", "any"], unique:true},
-    "arsonist":{canbe:["arsonist", "neutralKilling", "randomNeutral", "any"], unique:false},
-    "serialKiller":{canbe:["serialKiller", "neutralKilling", "randomNeutral", "any"], unique:false},
-    "werewolf":{canbe:["werewolf", "neutralKilling", "randomNeutral", "any"], unique:true},
-    "executioner":{canbe:["executioner", "neutralEvil", "randomNeutral", "any"], unique:false},
-    "jester":{canbe:["jester", "neutralEvil", "randomNeutral", "any"], unique:false},
-    "witch":{canbe:["witch", "neutralEvil", "randomNeutral", "any"], unique:false},
-    "amnesiac":{canbe:["amnesiac", "neutralBenign", "randomNeutral", "any"], unique:false},
-    "survivor":{canbe:["survivor", "neutralBenign", "randomNeutral", "any"], unique:false}
+    "escort":{canbe:["escort", "townsupport", "randomtown", "any"], unique:false},
+    "transporter":{canbe:["transporter", "townsupport", "randomtown", "any"], unique:false},
+    "mayor":{canbe:["mayor", "townsupport", "randomtown", "any"], unique:true},
+    "medium":{canbe:["medium", "townsupport", "randomtown", "any"], unique:false},
+    "retributionist":{canbe:["retributionist", "townsupport", "randomtown", "any"], unique:true},
+    "investigator":{canbe:["investigator", "towninvestigative", "randomtown", "any"], unique:false},
+    "spy":{canbe:["spy", "towninvestigative", "randomtown", "any"], unique:false},
+    "lookout":{canbe:["lookout", "towninvestigative", "randomtown", "any"], unique:false},
+    "sheriff":{canbe:["sheriff", "towninvestigative", "randomtown", "any"], unique:false},
+    "bodyguard":{canbe:["bodyguard", "townprotective", "randomtown", "any"], unique:false},
+    "doctor":{canbe:["doctor", "townprotective", "randomtown", "any"], unique:false},
+    "jailor":{canbe:["jailor", "townprotective", "randomtown", "any"], unique:true},
+    "veteran":{canbe:["veteran", "townkilling", "randomtown", "any"], unique:false},
+    "vigilante":{canbe:["vigilante", "townkilling", "randomtown", "any"], unique:false},
+    "framer":{canbe:["framer", "mafiadeception", "randommafia", "any"], unique:false},
+    "disguiser":{canbe:["disguiser", "mafiadeception", "randommafia", "any"], unique:false},
+    "janitor":{canbe:["janitor", "mafiadeception", "randommafia", "any"], unique:false},
+    "forger":{canbe:["forger", "mafiadeception", "randommafia", "any"], unique:false},
+    "blackmailer":{canbe:["blackmailer", "mafiasupport", "randommafia", "any"], unique:false},
+    "consigliere":{canbe:["consigliere", "mafiasupport", "randommafia", "any"], unique:false},
+    "consort":{canbe:["consort", "mafiasupport", "randommafia", "any"],  unique:false},
+    "godfather":{canbe:["godfather", "mafiakilling", "randommafia", "any"], unique:true},
+    "mafioso":{canbe:["mafioso", "mafiakilling", "randommafia", "any"], unique:true},
+    "arsonist":{canbe:["arsonist", "neutralkilling", "randomneutral", "any"], unique:false},
+    "serialKiller":{canbe:["serialKiller", "neutralkilling", "randomneutral", "any"], unique:false},
+    "werewolf":{canbe:["werewolf", "neutralkilling", "randomneutral", "any"], unique:true},
+    "executioner":{canbe:["executioner", "neutralevil", "randomneutral", "any"], unique:false},
+    "jester":{canbe:["jester", "neutralevil", "randomneutral", "any"], unique:false},
+    "witch":{canbe:["witch", "neutralevil", "randomneutral", "any"], unique:false},
+    "amnesiac":{canbe:["amnesiac", "neutralbenign", "randomneutral", "any"], unique:false},
+    "survivor":{canbe:["survivor", "neutralbenign", "randomneutral", "any"], unique:false}
 
 };
 
@@ -43,21 +43,22 @@ calculator.roleClasses = {
     "mafiaDeception":["framer", "forger", "disguiser", "janitor"],
     "mafiaSupport":["blackmailer", "consigliere", "consort"],
     "mafiaKilling":["godfather", "mafioso"],
-    "neutralKilling":["werewolf", "arsonist", "serialKiller"],
+    "neutralKilling":["werewolf", "arsonist", "serialkiller"],
     "neutralBenign":["amnesiac", "survivor"],
     "neutralEvil":["executioner", "jester", 'witch']
 };
 
 calculator.gameModes = {
 	"classic":["sheriff", "doctor", "investigator", "jailor", "medium", "godfather",
-	"framer", "executioner", "escort", "mafioso", "lookout", "serialKiller",
-	"townKilling", "jester", "randomTown"],
-	"ranked":["jailor", "townInvestigative", "townInvestigative", "townSupport",
-	"townSupport", "townProtective", "townKilling", "randomTown", "godfather",
-	"mafioso", "randomMafia", "neutralKilling", "neutralEvil", "neutralBenign",
+	"framer", "executioner", "escort", "mafioso", "lookout", "serialkiller",
+	"townkilling", "jester", "randomtown"],
+	"ranked":["jailor", "towninvestigative", "towninvestigative", "townsupport",
+	"townsupport", "townprotective", "townkilling", "randomtown", "godfather",
+	"mafioso", "randommafia", "neutralkilling", "neutralevil", "neutralbenign",
 	"any"],
 	"custom":[]
 };
+
 
 calculator.setup = function() {
     
