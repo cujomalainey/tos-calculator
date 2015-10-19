@@ -79,5 +79,7 @@ calculator.run = function() {
 };
 
 calculator.clearWarnings = function(){
-	calculator.people.forEach(function(e){e.attr('class', '')});
+	calculator.people.forEach(function(e){
+        e.attr('class', '');
+    });
 };
