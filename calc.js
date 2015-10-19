@@ -62,8 +62,8 @@ calculator.gameModes = {
 
 calculator.setup = function() {
     l = [];
-    for (int i = 0; i < 16; i++) {
-        l.add($("#" + i));
+    for (i = 1; i < 16; i++) {
+        l.push($("#" + i));
     }
     calculator.people = l;
 }
@@ -71,7 +71,7 @@ calculator.setup = function() {
 calculator.run = function() {
     // remove all warnings
     this.clearWarnings();
-// reset the pool
+    // reset the pool
 // remove all verified rules from pool
 // count claims against pool
 // look for roles that extend into RT, and any
