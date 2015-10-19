@@ -8,15 +8,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="style.css">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="calc.js"></script>
 <title>Town of Salem Calculator</title>
   </head>
 
@@ -28,20 +30,17 @@
           <a class="navbar-brand" href="#">Town of Salem Calculator</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse navbar-right">
-        	<a class="navbar-brand" href="https://github.com/cujomalainey/tos-calculator">Checkout the Repo</a>
+            <a class="navbar-brand" href="https://github.com/cujomalainey/tos-calculator">Checkout the Repo</a>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container-fluid">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
+    <div class="container-fluid">
+      <h1>Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
     </div>
-
+    <hr>
     <div class="container-fluid">
       <!-- Example row of columns -->
       <div class="row">
@@ -51,9 +50,28 @@
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-8">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <table class="table table-hover">
+              <thead>
+                <th>#</th>
+                <th>Claims</th>
+                <th>Verified</th>
+                <th>Dead</th>
+              </thead>
+              <tbody>
+                  <tr id="1">
+                    <td scope="row">1</td>
+                    <td>
+                      <input type="text" name="example" list="exampleList">
+                      <datalist id="exampleList">
+                        <option value="A">
+                        <option value="B">
+                      </datalist>
+                    </td>
+                    <td><input type="checkbox" value="Y"></td> 
+                    <td><input type="checkbox" value="Y"></td>
+                  </tr>
+              </tbody>
+          </table>
        </div>
         <div class="col-md-2">
           <h2>Heading</h2>

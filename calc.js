@@ -1,6 +1,6 @@
 var calculator = {};
 
-var calculator.roles = {
+calculator.roles = {
     "escort":{canbe:["escort", "townSupport", "randomTown", "any"], unique:false},
     "transporter":{canbe:["transporter", "townSupport", "randomTown", "any"], unique:false},
     "mayor":{canbe:["mayor", "townSupport", "randomTown", "any"], unique:true},
@@ -24,7 +24,7 @@ var calculator.roles = {
     "consort":{canbe:["consort", "mafiaSupport", "randomMafia", "any"],  unique:false},
     "godfather":{canbe:["godfather", "mafiaKilling", "randomMafia", "any"], unique:true},
     "mafioso":{canbe:["mafioso", "mafiaKilling", "randomMafia", "any"], unique:true},
-    "arsonist":{canbe:["arsonist", "neutralKilling", "randomNeutral", "any"] unique:false},
+    "arsonist":{canbe:["arsonist", "neutralKilling", "randomNeutral", "any"], unique:false},
     "serialKiller":{canbe:["serialKiller", "neutralKilling", "randomNeutral", "any"], unique:false},
     "werewolf":{canbe:["werewolf", "neutralKilling", "randomNeutral", "any"], unique:true},
     "executioner":{canbe:["executioner", "neutralEvil", "randomNeutral", "any"], unique:false},
@@ -35,7 +35,7 @@ var calculator.roles = {
 
 };
 
-var calculator.roleClasses = {
+calculator.roleClasses = {
     "townKilling":["vigilante", "veteran", "jailor"],
     "townProtective":["doctor", "bodyguard"],
     "townSupport":["escort", "transporter", "mayor", "medium", "retributionist"],
@@ -48,7 +48,7 @@ var calculator.roleClasses = {
     "neutralEvil":["executioner", "jester", 'witch']
 };
 
-var calculator.gameModes = {
+calculator.gameModes = {
 	"classic":["sheriff", "doctor", "investigator", "jailor", "medium", "godfather",
 	"framer", "executioner", "escort", "mafioso", "lookout", "serialKiller",
 	"townKilling", "jester", "randomTown"],
@@ -57,4 +57,18 @@ var calculator.gameModes = {
 	"mafioso", "randomMafia", "neutralKilling", "neutralEvil", "neutralBenign",
 	"any"],
 	"custom":[]
+};
+
+calculator.setup = function() {
+    
 }
+
+calculator.run = function() {
+
+};
+
+$(function() {
+    $( ".claims" ).autocomplete({
+      source: Object.keys(calculator.roles)
+    });
+  });
