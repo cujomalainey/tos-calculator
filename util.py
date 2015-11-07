@@ -4,7 +4,12 @@ class roleFactory():
     warnings = [0 for x in range(0, 15)]
 
     def __init__(self):
-        self.roles = {"escort": escort}
+        self.roles = {
+            "escort": escort, "transporter": transporter, "mayor": mayor,
+            "medium": medium, "retributionist": retributionist,
+            "investigator": investigator, "spy": spy, "lookout": lookout,
+            "sheriff": sheriff, "bodyguard": bodyguard, "doctor": doctor,
+            "jailor": jailor, "veteran": veteran, "vigilante": vigilante}
         self.containers = {}
         self.containers.update(self.roles)
 
@@ -41,10 +46,49 @@ class role():
         self.container = container
         self.factory = factory
         self.player = player
+        self.obj = None
 
     def collision(self, level):
         if not self.confirmed and self.player is not None:
             self.factory.setWarning(self.player, level)
+
+    def place(self, containers):
+        """
+        algorithm to attempt to place objects
+        """
+        c = canbe + [self.__class__]
+        l = 0
+        b = False
+        m = None
+        for can in c:
+            for cont in containers:
+                if can == cont.__class__:
+                    if cont.put(self):
+                        b = True
+                        m = cont
+                        break
+            if b:
+                break
+            l += 1
+        if m is None:
+            l = 5
+        self.factory.setWarning(self.player, l)
+        for can in c:
+            for cont in containers:
+                if can == cont.__class__:
+                    if cont == m:
+                        b = True
+                        break
+                    else:
+                        cont.obj.collision(l)
+            if b:
+                break
+
+    def put(self, obj):
+        if self.obj is None:
+            self.obj = obj
+            return True
+        return False
 
 
 class anyrole(role):
