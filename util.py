@@ -75,95 +75,120 @@ class escort(role):
 
 class transporter(role):
     """
-    "transporter":{canbe:["transporter", "townsupport", "randomtown", "any"], unique:false},
+    transporter
     """
+    canbe = [townsupport, randomtown, anyrole]
     unique = False
 
 
 class mayor(role):
     """
-    "mayor":{canbe:["mayor", "townsupport", "randomtown", "any"], unique:true},
+    mayor
     """
+    canbe = [townsupport, randomtown, anyrole]
     unique = True
 
 
 class medium(role):
     """
-    "medium":{canbe:["medium", "townsupport", "randomtown", "any"], unique:false},
+    medium
     """
+    canbe = [townsupport, randomtown, anyrole]
     unique = False
 
 
 class retributionist(role):
     """
-    "retributionist":{canbe:["retributionist", "townsupport", "randomtown", "any"], unique:true},
+    retributionist
     """
+    canbe = [townsupport, randomtown, anyrole]
     unique = True
 
 
 class investigator(role):
     """
-    "investigator":{canbe:["investigator", "towninvestigative", "randomtown", "any"], unique:false},
+    investigator
     """
+    canbe = [towninvestigative, randomtown, anyrole]
     unique = False
 
 
 class spy(role):
     """
-    "spy":{canbe:["spy", "towninvestigative", "randomtown", "any"], unique:false},
+    spy
     """
+    canbe = [towninvestigative, randomtown, anyrole]
     unique = False
 
 
 class lookout(role):
     """
-    "lookout":{canbe:["lookout", "towninvestigative", "randomtown", "any"], unique:false},
+    lookout
     """
+    canbe = [towninvestigative, randomtown, anyrole]
     unique = False
 
 
 class sheriff(role):
     """
-    "sheriff":{canbe:["sheriff", "towninvestigative", "randomtown", "any"], unique:false},
+    sheriff
     """
+    canbe = [towninvestigative, randomtown, anyrole]
     unique = False
 
 
 class bodyguard(role):
     """
-    "bodyguard":{canbe:["bodyguard", "townprotective", "randomtown", "any"], unique:false},
+    bodyguard
     """
+    canbe = [townprotective, randomtown, anyrole]
     unique = False
 
 
 class doctor(role):
     """
-    "doctor":{canbe:["doctor", "townprotective", "randomtown", "any"], unique:false},
+    doctor
     """
+    canbe = [townprotective, randomtown, anyrole]
     unique = False
 
 
 class jailor(role):
     """
-    "jailor":{canbe:["jailor", "townprotective", "randomtown", "any"], unique:true},
+    jailor
     """
+    canbe = [townprotective, randomtown, anyrole]
     unique = True
 
 
 class veteran(role):
     """
-    "veteran":{canbe:["veteran", "townkilling", "randomtown", "any"], unique:false},
+    veteran
     """
+    canbe = [veteran, townkilling, randomtown, anyrole]
     unique = False
 
 
 class vigilante(role):
     """
-    "vigilante":{canbe:["vigilante", "townkilling", "randomtown", "any"], unique:false},
+    vigilante
     """
+    canbe = [vigilante, townkilling, randomtown, anyrole]
     unique = False
-    # "framer":{canbe:["framer", "mafiadeception", "randommafia", "any"], unique:false},
-    # "disguiser":{canbe:["disguiser", "mafiadeception", "randommafia", "any"], unique:false},
+
+class framer(role):
+    """
+    framer
+    """
+    canbe = [mafiadeception, randommafia, anyrole]
+    unique = False
+
+class disguiser(role):
+    """
+    disguiser
+    """
+    canbe = [mafiadeception, randommafia, anyrole]
+    unique = False 
     # "janitor":{canbe:["janitor", "mafiadeception", "randommafia", "any"], unique:false},
     # "forger":{canbe:["forger", "mafiadeception", "randommafia", "any"], unique:false},
     # "blackmailer":{canbe:["blackmailer", "mafiasupport", "randommafia", "any"], unique:false},
@@ -179,3 +204,4 @@ class vigilante(role):
     # "witch":{canbe:["witch", "neutralevil", "randomneutral", "any"], unique:false},
     # "amnesiac":{canbe:["amnesiac", "neutralbenign", "randomneutral", "any"], unique:false},
     # "survivor":{canbe:["survivor", "neutralbenign", "randomneutral", "any"], unique:false}
+    # Mafia support, mafia killing, mafia support, neutralbenign , neutralevil, neutralkilling, towninvestigative, townkilling, townprotective
