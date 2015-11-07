@@ -68,28 +68,30 @@ class role():
         """
         algorithm to attempt to place objects
         """
-        c = self.canbe + [self.__class__]
+        c = [self.__class__] + self.canbe
         alert = 0
         brk = False
-        m = None
+        match = None
         for can in c:
             for cont in containers:
                 if can == cont.__class__:
                     if cont.put(self):
+                        print("putting player: {} with role {} in {} at level {}".format(self.player, self.__class__.__name__, cont.__class__.__name__, alert))
                         brk = True
-                        m = cont
+                        match = cont
                         break
             if brk:
                 break
             alert += 1
-        if m is None:
+        if match is None:
             alert = 5
+            print("no match for player: {} with role {}".format(self.player, self.__class__.__name__))
         self.factory.setWarning(self.player, alert)
         brk = False
         for can in c:
             for cont in containers:
                 if can == cont.__class__:
-                    if cont == m:
+                    if cont == match:
                         brk = True
                         break
                     else:
