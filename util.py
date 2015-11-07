@@ -5,8 +5,8 @@ class roleFactory():
 
     def __init__(self):
         self.roles = {"escort": escort}
-        containers = {}
-        self.containers = dict(self.roles, **containers)
+        self.containers = {}
+        self.containers.update(self.roles)
 
     def makeRole(self, role, confirmed, player):
         if self.roleLimit <= 0:
@@ -16,13 +16,13 @@ class roleFactory():
         try:
             return self.roles[role](confirmed, False, self, player)
         except Exception:
-            return
+            print("Cannot make role: {}".format(role))
 
     def makeContainer(self, role):
         try:
             return self.roles[role](None, True, self, 0)
         except Exception:
-            pass
+            print("Cannot make container: {}".format(role))
 
     def getWarnings(self):
         return self.warnings
@@ -43,106 +43,125 @@ class role():
         self.player = player
 
     def collision(self, level):
-        if not self.confirmed:
+        if not self.confirmed and self.player is not None:
             self.factory.setWarning(self.player, level)
+
+
+class anyrole(role):
+    """
+    """
+    pass
+
+
+class randomtown(role):
+    """
+    """
+    pass
+
+
+class townsupport(role):
+    """
+    """
+    pass
 
 
 class escort(role):
     """
-    "escort":{canbe:["escort", "townsupport", "randomtown", "any"], unique:false}
+    escort
     """
-    self.unique = False
+    canbe = [townsupport, randomtown, anyrole]
+    unique = False
 
 
 class transporter(role):
     """
     "transporter":{canbe:["transporter", "townsupport", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
 
 
 class mayor(role):
     """
     "mayor":{canbe:["mayor", "townsupport", "randomtown", "any"], unique:true},
     """
-    self.unique = True
+    unique = True
 
 
 class medium(role):
     """
     "medium":{canbe:["medium", "townsupport", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
 
 
 class retributionist(role):
     """
     "retributionist":{canbe:["retributionist", "townsupport", "randomtown", "any"], unique:true},
     """
-    self.unique = True
+    unique = True
 
 
 class investigator(role):
     """
     "investigator":{canbe:["investigator", "towninvestigative", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
 
 
 class spy(role):
     """
     "spy":{canbe:["spy", "towninvestigative", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
 
 
 class lookout(role):
     """
     "lookout":{canbe:["lookout", "towninvestigative", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
 
 
 class sheriff(role):
     """
     "sheriff":{canbe:["sheriff", "towninvestigative", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
 
 
 class bodyguard(role):
     """
     "bodyguard":{canbe:["bodyguard", "townprotective", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
 
 
 class doctor(role):
     """
     "doctor":{canbe:["doctor", "townprotective", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
 
 
 class jailor(role):
     """
     "jailor":{canbe:["jailor", "townprotective", "randomtown", "any"], unique:true},
     """
-    self.unique = True
+    unique = True
 
 
 class veteran(role):
     """
     "veteran":{canbe:["veteran", "townkilling", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
 
 
 class vigilante(role):
     """
     "vigilante":{canbe:["vigilante", "townkilling", "randomtown", "any"], unique:false},
     """
-    self.unique = False
+    unique = False
     # "framer":{canbe:["framer", "mafiadeception", "randommafia", "any"], unique:false},
     # "disguiser":{canbe:["disguiser", "mafiadeception", "randommafia", "any"], unique:false},
     # "janitor":{canbe:["janitor", "mafiadeception", "randommafia", "any"], unique:false},
