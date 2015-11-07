@@ -9,8 +9,20 @@ class roleFactory():
             "medium": medium, "retributionist": retributionist,
             "investigator": investigator, "spy": spy, "lookout": lookout,
             "sheriff": sheriff, "bodyguard": bodyguard, "doctor": doctor,
-            "jailor": jailor, "veteran": veteran, "vigilante": vigilante}
-        self.containers = {}
+            "jailor": jailor, "veteran": veteran, "vigilante": vigilante,
+            "framer": framer, "disguiser": disguiser, "godfather": godfather,
+            "mafioso": mafioso, "executioner": executioner, "forger": forger,
+            "serialkiller": serialkiller, "survivor": survivor,
+            "arsonist": arsonist, "werewolf": werewolf, "amnesiac": amnesiac}
+        self.containers = {
+            "anyrole": anyrole, "randomtown": randomtown,
+            "randommafia": randommafia, "randomneutral": randomneutral,
+            "townsupport": townsupport, "neutralbenign": neutralbenign,
+            "neutralevil": neutralevil, "neutralkilling": neutralkilling,
+            "towninvestigative": towninvestigative,
+            "townprotective": townprotective, "townkilling": townkilling,
+            "mafiasupport": mafiasupport, "mafiakilling": mafiakilling,
+            "mafiadeception": mafiadeception}
         self.containers.update(self.roles)
 
     def makeRole(self, role, confirmed, player):
@@ -20,14 +32,14 @@ class roleFactory():
             self.roleLimit -= 1
         try:
             return self.roles[role](confirmed, False, self, player)
-        except Exception:
-            print("Cannot make role: {}".format(role))
+        except Exception as e:
+            print("Cannot make role: {} because {}".format(role, e))
 
     def makeContainer(self, role):
         try:
-            return self.roles[role](None, True, self, 0)
-        except Exception:
-            print("Cannot make container: {}".format(role))
+            return self.containers[role](None, True, self, 0)
+        except Exception as e:
+            print("Cannot make container: {} because {}".format(role, e))
 
     def getWarnings(self):
         return self.warnings
@@ -56,32 +68,33 @@ class role():
         """
         algorithm to attempt to place objects
         """
-        c = canbe + [self.__class__]
-        l = 0
-        b = False
+        c = self.canbe + [self.__class__]
+        alert = 0
+        brk = False
         m = None
         for can in c:
             for cont in containers:
                 if can == cont.__class__:
                     if cont.put(self):
-                        b = True
+                        brk = True
                         m = cont
                         break
-            if b:
+            if brk:
                 break
-            l += 1
+            alert += 1
         if m is None:
-            l = 5
-        self.factory.setWarning(self.player, l)
+            alert = 5
+        self.factory.setWarning(self.player, alert)
+        brk = False
         for can in c:
             for cont in containers:
                 if can == cont.__class__:
                     if cont == m:
-                        b = True
+                        brk = True
                         break
                     else:
-                        cont.obj.collision(l)
-            if b:
+                        cont.obj.collision(alert)
+            if brk:
                 break
 
     def put(self, obj):
@@ -103,7 +116,73 @@ class randomtown(role):
     pass
 
 
+class randomneutral(role):
+    """
+    """
+    pass
+
+
+class randommafia(role):
+    """
+    """
+    pass
+
+
 class townsupport(role):
+    """
+    """
+    pass
+
+
+class towninvestigative(role):
+    """
+    """
+    pass
+
+
+class townkilling(role):
+    """
+    """
+    pass
+
+
+class townprotective(role):
+    """
+    """
+    pass
+
+
+class mafiasupport(role):
+    """
+    """
+    pass
+
+
+class mafiakilling(role):
+    """
+    """
+    pass
+
+
+class mafiadeception(role):
+    """
+    """
+    pass
+
+
+class neutralbenign(role):
+    """
+    """
+    pass
+
+
+class neutralevil(role):
+    """
+    """
+    pass
+
+
+class neutralkilling(role):
     """
     """
     pass
@@ -209,7 +288,7 @@ class veteran(role):
     """
     veteran
     """
-    canbe = [veteran, townkilling, randomtown, anyrole]
+    canbe = [townkilling, randomtown, anyrole]
     unique = False
 
 
@@ -217,7 +296,7 @@ class vigilante(role):
     """
     vigilante
     """
-    canbe = [vigilante, townkilling, randomtown, anyrole]
+    canbe = [townkilling, randomtown, anyrole]
     unique = False
 
 
@@ -234,7 +313,7 @@ class disguiser(role):
     disguiser
     """
     canbe = [mafiadeception, randommafia, anyrole]
-    unique = False 
+    unique = False
 
 
 class janitor(role):
@@ -355,4 +434,3 @@ class survivor(role):
     """
     canbe = [neutralbenign, randomneutral, anyrole]
     unique = False
-    # Mafia support, mafia killing, mafia support, neutralbenign , neutralevil, neutralkilling, towninvestigative, townkilling, townprotective

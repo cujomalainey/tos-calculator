@@ -14,7 +14,7 @@ class calculator():
             "jailor", "towninvestigative", "towninvestigative", "townsupport",
             "townsupport", "townprotective", "townkilling", "randomtown",
             "godfather", "mafioso", "randommafia", "neutralkilling",
-            "neutralevil", "neutralbenign", "any"]
+            "neutralevil", "neutralbenign", "anyrole"]
             }
 
     def __init__(self, gameType, roleList):
