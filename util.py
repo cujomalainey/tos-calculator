@@ -220,6 +220,7 @@ class vigilante(role):
     canbe = [vigilante, townkilling, randomtown, anyrole]
     unique = False
 
+
 class framer(role):
     """
     framer
@@ -227,25 +228,131 @@ class framer(role):
     canbe = [mafiadeception, randommafia, anyrole]
     unique = False
 
+
 class disguiser(role):
     """
     disguiser
     """
     canbe = [mafiadeception, randommafia, anyrole]
     unique = False 
-    # "janitor":{canbe:["janitor", "mafiadeception", "randommafia", "any"], unique:false},
-    # "forger":{canbe:["forger", "mafiadeception", "randommafia", "any"], unique:false},
-    # "blackmailer":{canbe:["blackmailer", "mafiasupport", "randommafia", "any"], unique:false},
-    # "consigliere":{canbe:["consigliere", "mafiasupport", "randommafia", "any"], unique:false},
-    # "consort":{canbe:["consort", "mafiasupport", "randommafia", "any"],  unique:false},
-    # "godfather":{canbe:["godfather", "mafiakilling", "randommafia", "any"], unique:true},
-    # "mafioso":{canbe:["mafioso", "mafiakilling", "randommafia", "any"], unique:true},
-    # "arsonist":{canbe:["arsonist", "neutralkilling", "randomneutral", "any"], unique:false},
-    # "serialKiller":{canbe:["serialKiller", "neutralkilling", "randomneutral", "any"], unique:false},
-    # "werewolf":{canbe:["werewolf", "neutralkilling", "randomneutral", "any"], unique:true},
-    # "executioner":{canbe:["executioner", "neutralevil", "randomneutral", "any"], unique:false},
-    # "jester":{canbe:["jester", "neutralevil", "randomneutral", "any"], unique:false},
-    # "witch":{canbe:["witch", "neutralevil", "randomneutral", "any"], unique:false},
-    # "amnesiac":{canbe:["amnesiac", "neutralbenign", "randomneutral", "any"], unique:false},
-    # "survivor":{canbe:["survivor", "neutralbenign", "randomneutral", "any"], unique:false}
+
+
+class janitor(role):
+    """
+    janitor
+    """
+    canbe = [mafiadeception, randommafia, anyrole]
+    unique = False
+
+
+class forger(role):
+    """
+    forger
+    """
+    canbe = [mafiadeception, randommafia, anyrole]
+    unique = False
+
+
+class blackmailer(role):
+    """
+    blackmailer
+    """
+    canbe = [mafiasupport, randommafia, anyrole]
+    unique = False
+
+
+class consigiliere(role):
+    """
+    consigiliere
+    """
+    canbe = [mafiasupport, randommafia, anyrole]
+    unique = False
+
+
+class consort(role):
+    """
+    consort
+    """
+    canbe = [mafiasupport, randommafia, anyrole]
+    unique = False
+
+
+class godfather(role):
+    """
+    godfather
+    """
+    canbe = [mafiakilling, randommafia, anyrole]
+    unique = True
+
+
+class mafioso(role):
+    """
+    mafioso
+    """
+    canbe = [mafiakilling, randommafia, anyrole]
+    unique = True
+
+
+class arsonist(role):
+    """
+    arsonist
+    """
+    canbe = [neutralkilling, randomneutral, anyrole]
+    unique = False
+
+
+class serialkiller(role):
+    """
+    serialkiller
+    """
+    canbe = [neutralkilling, randomneutral, anyrole]
+    unique = False
+
+
+class werewolf(role):
+    """
+    werewolf
+    """
+    canbe = [neutralkilling, randomneutral, anyrole]
+    unique = True
+
+
+class executioner(role):
+    """
+    executioner
+    """
+    canbe = [neutralevil, randomneutral, anyrole]
+    unique = False
+
+
+class jester(role):
+    """
+    jester
+    """
+    canbe = [neutralevil, randomneutral, anyrole]
+    unique = False
+
+
+class witch(role):
+    """
+    witch
+    """
+    canbe = [neutralevil, randomneutral, anyrole]
+    unique = False
+
+
+class amnesiac(role):
+    """
+    amnesiac
+    """
+    canbe = [neutralbenign, randomneutral, anyrole]
+    unique = False
+
+
+class survivor(role):
+    """
+    survivor
+    """
+    canbe = [neutralbenign, randomneutral, anyrole]
+    unique = False
     # Mafia support, mafia killing, mafia support, neutralbenign , neutralevil, neutralkilling, towninvestigative, townkilling, townprotective
