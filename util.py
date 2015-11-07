@@ -4,7 +4,12 @@ class roleFactory():
     warnings = [0 for x in range(0, 15)]
 
     def __init__(self):
-        self.roles = {"escort": escort}
+        self.roles = {
+            "escort": escort, "transporter": transporter, "mayor": mayor,
+            "medium": medium, "retributionist": retributionist,
+            "investigator": investigator, "spy": spy, "lookout": lookout,
+            "sheriff": sheriff, "bodyguard": bodyguard, "doctor": doctor,
+            "jailor": jailor, "veteran": veteran, "vigilante": vigilante}
         self.containers = {}
         self.containers.update(self.roles)
 
