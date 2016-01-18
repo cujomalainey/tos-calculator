@@ -1,4 +1,10 @@
 from util import roleFactory
+from flask import Flask
+from flask import Response
+import json
+
+
+app = Flask(__name__)
 
 
 class calculator():
@@ -22,30 +28,37 @@ class calculator():
         self.containers = [
             self.factory.makeContainer(role) for role in self.modes[gameType]]
         self.roles = []
+        i = 0
         for r in roleList:
             self.roles.append(self.factory.makeRole(
-                r["role"], r["confirmed"], r["player"] - 1))
+                r["role"], r["confirmed"], i))
+            i += 1
 
     def run(self):
         for r in self.roles:
             r.place(self.containers)
         return self.factory.getWarnings()
 
-if __name__ == '__main__':
-    v = [{"role": "jailor", "confirmed": True, "player": 1},
-         {"role": "escort", "confirmed": False, "player": 2},
-         {"role": "escort", "confirmed": False, "player": 3},
-         {"role": "sheriff", "confirmed": False, "player": 4},
-         {"role": "spy", "confirmed": False, "player": 5},
-         {"role": "spy", "confirmed": False, "player": 6},
-         {"role": "doctor", "confirmed": False, "player": 7},
-         {"role": "executioner", "confirmed": False, "player": 8},
-         {"role": "godfather", "confirmed": False, "player": 9},
-         {"role": "forger", "confirmed": False, "player": 10},
-         {"role": "mafioso", "confirmed": False, "player": 11},
-         {"role": "serialkiller", "confirmed": False, "player": 12},
-         {"role": "survivor", "confirmed": False, "player": 13},
-         {"role": "veteran", "confirmed": False, "player": 14},
-         {"role": "survivor", "confirmed": False, "player": 15}]
+
+@app.route("/calc")
+def runCalc():
+    v = [{"role": "jailor", "confirmed": True},
+         {"role": "escort", "confirmed": False},
+         {"role": "escort", "confirmed": False},
+         {"role": "sheriff", "confirmed": False},
+         {"role": "spy", "confirmed": False},
+         {"role": "spy", "confirmed": False},
+         {"role": "doctor", "confirmed": False},
+         {"role": "executioner", "confirmed": False},
+         {"role": "godfather", "confirmed": False},
+         {"role": "forger", "confirmed": False},
+         {"role": "mafioso", "confirmed": False},
+         {"role": "serialkiller", "confirmed": False},
+         {"role": "survivor", "confirmed": False},
+         {"role": "veteran", "confirmed": False},
+         {"role": "survivor", "confirmed": False}]
     c = calculator("ranked", v)
-    print(c.run())
+    return Response(json.dumps(c.run()), mimetype="application/json")
+
+if __name__ == '__main__':
+    app.run()
