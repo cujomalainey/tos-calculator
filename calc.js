@@ -49,14 +49,14 @@ calculator.roleClasses = {
 };
 
 calculator.gameModes = {
-	"classic":["sheriff", "doctor", "investigator", "jailor", "medium", "godfather",
-	"framer", "executioner", "escort", "mafioso", "lookout", "serialkiller",
-	"townkilling", "jester", "randomtown"],
-	"ranked":["jailor", "towninvestigative", "towninvestigative", "townsupport",
-	"townsupport", "townprotective", "townkilling", "randomtown", "godfather",
-	"mafioso", "randommafia", "neutralkilling", "neutralevil", "neutralbenign",
-	"any"],
-	"custom":[]
+    "classic":["sheriff", "doctor", "investigator", "jailor", "medium", "godfather",
+    "framer", "executioner", "escort", "mafioso", "lookout", "serialkiller",
+    "townkilling", "jester", "randomtown"],
+    "ranked":["jailor", "towninvestigative", "towninvestigative", "townsupport",
+    "townsupport", "townprotective", "townkilling", "randomtown", "godfather",
+    "mafioso", "randommafia", "neutralkilling", "neutralevil", "neutralbenign",
+    "any"],
+    "custom":[]
 };
 
 
@@ -79,7 +79,21 @@ calculator.run = function() {
 };
 
 calculator.clearWarnings = function(){
-	calculator.people.forEach(function(e){
+    calculator.people.forEach(function(e){
         e.attr('class', '');
     });
+};
+
+calculator.list = function(){
+    inputs = [];
+    //variable to store all the inputs
+    for (i = 1; i <= 15; i++) {
+        inp = $("#" + i + " input");
+        inputs.push({
+            "confirmed": inp[1].checked,
+            "role": inp [0].value
+        });
+    }
+    
+    return inputs;
 };
