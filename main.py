@@ -1,6 +1,7 @@
 from util import roleFactory
 from flask import Flask
 from flask import Response
+from flask import request
 import json
 
 
@@ -40,24 +41,24 @@ class calculator():
         return self.factory.getWarnings()
 
 
-@app.route("/calc")
+@app.route("/calc", methods=['POST'])
 def runCalc():
-    v = [{"role": "jailor", "confirmed": True},
-         {"role": "escort", "confirmed": False},
-         {"role": "escort", "confirmed": False},
-         {"role": "sheriff", "confirmed": False},
-         {"role": "spy", "confirmed": False},
-         {"role": "spy", "confirmed": False},
-         {"role": "doctor", "confirmed": False},
-         {"role": "executioner", "confirmed": False},
-         {"role": "godfather", "confirmed": False},
-         {"role": "forger", "confirmed": False},
-         {"role": "mafioso", "confirmed": False},
-         {"role": "serialkiller", "confirmed": False},
-         {"role": "survivor", "confirmed": False},
-         {"role": "veteran", "confirmed": False},
-         {"role": "survivor", "confirmed": False}]
-    c = calculator("ranked", v)
+    # v = [{"role": "jailor", "confirmed": True},
+    #      {"role": "escort", "confirmed": False},
+    #      {"role": "escort", "confirmed": False},
+    #      {"role": "sheriff", "confirmed": False},
+    #      {"role": "spy", "confirmed": False},
+    #      {"role": "spy", "confirmed": False},
+    #      {"role": "doctor", "confirmed": False},
+    #      {"role": "executioner", "confirmed": False},
+    #      {"role": "godfather", "confirmed": False},
+    #      {"role": "forger", "confirmed": False},
+    #      {"role": "mafioso", "confirmed": False},
+    #      {"role": "serialkiller", "confirmed": False},
+    #      {"role": "survivor", "confirmed": False},
+    #      {"role": "veteran", "confirmed": False},
+    #      {"role": "survivor", "confirmed": False}]
+    c = calculator("ranked", json.loads(request.form["players"]))
     return Response(json.dumps(c.run()), mimetype="application/json")
 
 if __name__ == '__main__':
